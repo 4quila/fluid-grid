@@ -1,0 +1,66 @@
+$grid-gutter: 2rem;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  direction: rtl;
+}
+
+.grid {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.row {
+  margin-top: 2rem;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  & [class^="col"] {
+    float: right;
+    margin-left: $grid-gutter;
+    border: 2px solid red;
+    padding: 1rem;
+  }
+
+  & [class^="col"]:last-child {
+    margin-left: 0;
+  }
+
+  & .col-1-of-2 {
+    width: calc((100% - #{$grid-gutter}) / 2);
+  }
+  & .col-1-of-3 {
+    width: calc((100% - #{$grid-gutter * 2}) / 3);
+  }
+  & .col-2-of-3 {
+    width: calc(((100% - #{$grid-gutter * 2}) / 3) * 2 + #{$grid-gutter});
+  }
+  & .col-1-of-4 {
+    width: calc((100% - #{$grid-gutter * 3}) / 4);
+  }
+  & .col-2-of-4 {
+    width: calc(((100% - #{$grid-gutter * 3}) / 4) * 2 + #{$grid-gutter});
+  }
+  & .col-3-of-4 {
+    width: calc(((100% - #{$grid-gutter * 3}) / 4) * 3 + #{$grid-gutter * 2});
+  }
+}
